@@ -8,15 +8,17 @@
 </head>
 <body>
   <div class="container">
-    <h1>Labeled Tree Generator 🌳</h1>
-    <label for="nodes">Enter number of nodes:</label>
+    <h1>🌳 Labeled Tree Generator</h1>
+    <label for="nodes">Enter number of vertices:</label>
     <input type="number" id="nodes" min="2" value="5">
-    <button onclick="generateTree()">Generate</button>
+    <button onclick="generateTree()">Generate Tree</button>
+
     <div id="output">
-      <p>Tree image will appear below:</p>
-      <img id="treeImage" alt="Tree Visualization">
+      <h3 id="tree-title"></h3>
+      <img id="treeImage" alt="Generated Tree">
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
