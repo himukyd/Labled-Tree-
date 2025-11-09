@@ -1,0 +1,54 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #eef2f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 400px;
+}
+
+h1 {
+  color: #2a7d8c;
+}
+
+input {
+  width: 60px;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+}
+
+button {
+  background-color: #2a7d8c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #1f5e67;
+}
+
+#output {
+  margin-top: 20px;
+}
+
+#treeImage {
+  margin-top: 10px;
+  max-width: 100%;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
