@@ -1,28 +1,29 @@
-# backend/main.py
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from tree_utils import get_tree_image_base64
+from tree_utils import get_all_tree_images
 
 app = FastAPI()
 
-# Allow frontend to connect
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # allow all (for testing)
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 @app.get("/")
 def root():
-    return {"message": "Welcome to Labeled Tree API! Use /tree?n=5"}
+    return {"message": "Welcome! Use /all_trees?n=3"}
 
-@app.get("/tree")
-def generate_tree(n: int = 5):
-    """Generate and return random labeled tree image"""
-    img_b64 = get_tree_image_base64(n)
-    return {"n": n, "image": img_b64}
+@app.get("/all_trees")
+def all_trees(n: int = 3):
+    """
+    Return all distinct labeled trees for given n as images (base64)
+    """
+    if n > 6:
+        return {"error": "Too large! n must be <= 6 (n^(n-2) grows fast)."}
+    images = get_all_tree_images(n)
+    return {"n": n, "count": len(images), "trees": images}
 
 
 if __name__ == "__main__":

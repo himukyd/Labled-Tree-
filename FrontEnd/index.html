@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Labeled Tree Generator</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>🌳 Labeled Tree Generator</h1>
-    <label for="nodes">Enter number of vertices:</label>
-    <input type="number" id="nodes" min="2" value="5">
-    <button onclick="generateTree()">Generate Tree</button>
+  <div class="wrapper">
+    <header>
+      <h1>🌳 Labeled Tree Visualizer</h1>
+      <p>Explore Cayley’s formula and Prüfer codes interactively</p>
+    </header>
 
-    <div id="output">
-      <h3 id="tree-title"></h3>
-      <img id="treeImage" alt="Generated Tree">
-    </div>
+    <section class="input-section">
+      <label for="nodes">Enter number of vertices (n):</label>
+      <input type="number" id="nodes" min="2" value="3" />
+      <button onclick="showInfo()">Show Info</button>
+      <button onclick="generateAllTrees()">Generate All Trees</button>
+    </section>
+
+    <section class="info-section">
+      <div class="info-card">
+        <h3>Total Labeled Trees</h3>
+        <p id="treeCount">–</p>
+      </div>
+      <div class="info-card">
+        <h3>Total Prüfer Sequences</h3>
+        <p id="pruferCount">–</p>
+      </div>
+      <div class="info-card">
+        <h3>Formula</h3>
+        <p>n<sup>(n−2)</sup></p>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <h2>Generated Trees</h2>
+      <p id="count"></p>
+      <div id="treeGrid"></div>
+    </section>
+
+    <footer>
+      <p>Made by Himanshu's Team (Methologers)| Based on Cayley’s Formula</p>
+    </footer>
   </div>
 
   <script src="script.js"></script>
